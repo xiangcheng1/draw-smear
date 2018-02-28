@@ -32,6 +32,7 @@
     [self addSubview:self.imgView];
 }
 
+
 -(void)layoutSubviews
 {
     [super layoutSubviews];
