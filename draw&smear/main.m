@@ -1,6 +1,6 @@
 //
 //  main.m
-//  你图我画
+//  draw&smear
 //
 //  Created by 程翔 on 2018/2/27.
 //  Copyright © 2018年 程翔. All rights reserved.

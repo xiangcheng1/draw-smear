@@ -1,12 +1,14 @@
 //
 //  AppDelegate.m
-//  你图我画
+//  draw&smear
 //
 //  Created by 程翔 on 2018/2/27.
 //  Copyright © 2018年 程翔. All rights reserved.
 //
 
 #import "AppDelegate.h"
+
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[ViewController alloc]init]];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
