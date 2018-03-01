@@ -29,6 +29,9 @@
 		F5563DED20453E3A001D3725 /* MyImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563DEC20453E3A001D3725 /* MyImageView.m */; };
 		F5563DF0204541D3001D3725 /* LinkedListStack.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563DEF204541D3001D3725 /* LinkedListStack.m */; };
 		F5563DF4204645CC001D3725 /* ColorSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563DF3204645CC001D3725 /* ColorSliderView.m */; };
+		F5563DFA2047A0C5001D3725 /* CXShineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563DF92047A0C5001D3725 /* CXShineButton.m */; };
+		F5563DFD2047D84D001D3725 /* CXDoodleMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563DFC2047D84D001D3725 /* CXDoodleMenuBar.m */; };
+		F5563E032047E27F001D3725 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E022047E27F001D3725 /* UIImage+Tint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,13 @@
 		F5563DF2204645CC001D3725 /* ColorSliderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorSliderView.h; sourceTree = "<group>"; };
 		F5563DF3204645CC001D3725 /* ColorSliderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorSliderView.m; sourceTree = "<group>"; };
 		F5563DF520465279001D3725 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F5563DF82047A0C5001D3725 /* CXShineButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXShineButton.h; sourceTree = "<group>"; };
+		F5563DF92047A0C5001D3725 /* CXShineButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXShineButton.m; sourceTree = "<group>"; };
+		F5563DFB2047D84D001D3725 /* CXDoodleMenuBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDoodleMenuBar.h; sourceTree = "<group>"; };
+		F5563DFC2047D84D001D3725 /* CXDoodleMenuBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDoodleMenuBar.m; sourceTree = "<group>"; };
+		F5563E012047E27F001D3725 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
+		F5563E022047E27F001D3725 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
+		F5563E042047E2C3001D3725 /* CategoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryHeader.h; sourceTree = "<group>"; };
 		FC3A1ABDBCAD1CE6EACCF9F6 /* Pods-draw&smear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-draw&smear.release.xcconfig"; path = "Pods/Target Support Files/Pods-draw&smear/Pods-draw&smear.release.xcconfig"; sourceTree = "<group>"; };
 		FF64AFE1A73FA44820C75514 /* libPods-draw&smearTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-draw&smearTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -168,6 +178,8 @@
 		F5563DA6204506F4001D3725 /* draw&smear */ = {
 			isa = PBXGroup;
 			children = (
+				F5563DFE2047E215001D3725 /* Common */,
+				F5563DF72047A0A0001D3725 /* Tools */,
 				F5563DF120464231001D3725 /* ColorPicker */,
 				F5563DD920450775001D3725 /* images */,
 				F5563DA7204506F4001D3725 /* AppDelegate.h */,
@@ -229,6 +241,43 @@
 				F5563DF3204645CC001D3725 /* ColorSliderView.m */,
 			);
 			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		F5563DF72047A0A0001D3725 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F5563DF82047A0C5001D3725 /* CXShineButton.h */,
+				F5563DF92047A0C5001D3725 /* CXShineButton.m */,
+				F5563DFB2047D84D001D3725 /* CXDoodleMenuBar.h */,
+				F5563DFC2047D84D001D3725 /* CXDoodleMenuBar.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F5563DFE2047E215001D3725 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F5563DFF2047E233001D3725 /* Category */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F5563DFF2047E233001D3725 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F5563E042047E2C3001D3725 /* CategoryHeader.h */,
+				F5563E002047E27F001D3725 /* UIImage */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		F5563E002047E27F001D3725 /* UIImage */ = {
+			isa = PBXGroup;
+			children = (
+				F5563E012047E27F001D3725 /* UIImage+Tint.h */,
+				F5563E022047E27F001D3725 /* UIImage+Tint.m */,
+			);
+			path = UIImage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -530,10 +579,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5563DFA2047A0C5001D3725 /* CXShineButton.m in Sources */,
 				F5563DEA20450CF2001D3725 /* ColorPickerView.m in Sources */,
+				F5563E032047E27F001D3725 /* UIImage+Tint.m in Sources */,
 				F5563DF0204541D3001D3725 /* LinkedListStack.m in Sources */,
 				F5563DED20453E3A001D3725 /* MyImageView.m in Sources */,
 				F5563DAC204506F4001D3725 /* ViewController.m in Sources */,
+				F5563DFD2047D84D001D3725 /* CXDoodleMenuBar.m in Sources */,
 				F5563DB7204506F4001D3725 /* main.m in Sources */,
 				F5563DA9204506F4001D3725 /* AppDelegate.m in Sources */,
 				F5563DF4204645CC001D3725 /* ColorSliderView.m in Sources */,

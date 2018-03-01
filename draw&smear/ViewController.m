@@ -10,6 +10,7 @@
 #import <Photos/Photos.h>
 #import "ColorPickerView.h"
 #import "MyImageView.h"
+#import "CXShineButton.h"
 
 @interface ViewController ()<UIScrollViewDelegate,ColorPickerViewDelegate>
 
@@ -77,6 +78,16 @@
     UIBarButtonItem * negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemFixedSpace) target:nil action:nil];
     negativeSpacer.width = 50;
     self.navigationItem.leftBarButtonItems =  @[[[UIBarButtonItem alloc] initWithCustomView:_shapeButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_keepButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_shareButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_revokeButton]];
+    
+    
+    CXShineButton * shineButton = [CXShineButton shineButtonWithTintColor:[UIColor redColor] normalImage:[UIImage imageNamed:@"save_normal"] hightlightImage:[UIImage imageNamed:@"save_select"] normarTypeTapAction:^{
+        NSLog(@"<>_<>----嘿嘿嘿");
+    } hightlightTypeTapAction:^{
+        NSLog(@"<>_<>----哈哈哈");
+    }];
+    shineButton.isCycleResponse = YES;
+    shineButton.frame = CGRectMake(100, 450, 69, 69);
+    [self.view addSubview:shineButton];
 }
 
 // 返回

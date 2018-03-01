@@ -15,4 +15,6 @@
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import <CommonElement/CommonElement.h>
 
+#import "CategoryHeader.h"
+
 #endif /* PrefixHeader_pch */
