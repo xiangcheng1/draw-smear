@@ -1,5 +1,5 @@
 //
-//  CXDoodleMenuBar.h
+//  CXSmearMenuBar.h
 //  draw&smear
 //
 //  Created by 程翔 on 2018/3/1.
@@ -8,24 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol CXDoodleMenuBarDelegate <NSObject>
+@protocol CXSmearMenuBarDelegate <NSObject>
 
-- (void)doodleMenuBarClickIndex:(NSInteger)index barItemIsSelectAfter:(BOOL)select;
+- (void)smearMenuBarClickIndex:(NSInteger)index barItemIsSelectAfter:(BOOL)select;
 
 @end
-@class CXDoodleMenuButtonItem;
-@interface CXDoodleMenuBar : UIView
 
-@property (nonatomic,weak) id<CXDoodleMenuBarDelegate> delegate;
+@class CXSmearMenuButtonItem;
+@interface CXSmearMenuBar : UIView
+
+@property (nonatomic,weak) id<CXSmearMenuBarDelegate> delegate;
 @property (nonatomic,strong) UIColor * tintColor;
-+ (instancetype)doodleMenuBarWithMenuButtonItemArray:(NSArray <CXDoodleMenuButtonItem *>*)menuItemArray;
-- (void)animationSHowDoodleMenuBarWithAnchorPoint:(CGPoint)anchorPoint;
++ (instancetype)smearMenuBarWithFrame:(CGRect)frame buttonItemArray:(NSArray <CXSmearMenuButtonItem *> *)menuItemArray;
 
 @end
 
-////////////////////////////////////////////////////////
-
-@interface CXDoodleMenuButtonItem : NSObject
+@interface CXSmearMenuButtonItem : NSObject
 
 @property (nonatomic,copy) NSString * imageName;
 @property (nonatomic,strong) UIColor * normalColor;
@@ -36,6 +34,4 @@
                                  imageSelectColor:(UIColor *)selectColor
                                        isSelected:(BOOL)selected;
 
-
 @end
-

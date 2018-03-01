@@ -32,6 +32,8 @@
 		F5563DFA2047A0C5001D3725 /* CXShineButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563DF92047A0C5001D3725 /* CXShineButton.m */; };
 		F5563DFD2047D84D001D3725 /* CXDoodleMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563DFC2047D84D001D3725 /* CXDoodleMenuBar.m */; };
 		F5563E032047E27F001D3725 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E022047E27F001D3725 /* UIImage+Tint.m */; };
+		F5563E0B2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E0A2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m */; };
+		F5563E0E2048054C001D3725 /* CXSmearMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E0D2048054C001D3725 /* CXSmearMenuBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,10 @@
 		F5563E012047E27F001D3725 /* UIImage+Tint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Tint.h"; sourceTree = "<group>"; };
 		F5563E022047E27F001D3725 /* UIImage+Tint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Tint.m"; sourceTree = "<group>"; };
 		F5563E042047E2C3001D3725 /* CategoryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryHeader.h; sourceTree = "<group>"; };
+		F5563E092047F5D8001D3725 /* UIView+CXDoodleMenuBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+CXDoodleMenuBar.h"; sourceTree = "<group>"; };
+		F5563E0A2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CXDoodleMenuBar.m"; sourceTree = "<group>"; };
+		F5563E0C2048054C001D3725 /* CXSmearMenuBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSmearMenuBar.h; sourceTree = "<group>"; };
+		F5563E0D2048054C001D3725 /* CXSmearMenuBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXSmearMenuBar.m; sourceTree = "<group>"; };
 		FC3A1ABDBCAD1CE6EACCF9F6 /* Pods-draw&smear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-draw&smear.release.xcconfig"; path = "Pods/Target Support Files/Pods-draw&smear/Pods-draw&smear.release.xcconfig"; sourceTree = "<group>"; };
 		FF64AFE1A73FA44820C75514 /* libPods-draw&smearTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-draw&smearTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -178,6 +184,7 @@
 		F5563DA6204506F4001D3725 /* draw&smear */ = {
 			isa = PBXGroup;
 			children = (
+				F5563E052047F502001D3725 /* Smear */,
 				F5563DFE2047E215001D3725 /* Common */,
 				F5563DF72047A0A0001D3725 /* Tools */,
 				F5563DF120464231001D3725 /* ColorPicker */,
@@ -250,6 +257,10 @@
 				F5563DF92047A0C5001D3725 /* CXShineButton.m */,
 				F5563DFB2047D84D001D3725 /* CXDoodleMenuBar.h */,
 				F5563DFC2047D84D001D3725 /* CXDoodleMenuBar.m */,
+				F5563E092047F5D8001D3725 /* UIView+CXDoodleMenuBar.h */,
+				F5563E0A2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m */,
+				F5563E0C2048054C001D3725 /* CXSmearMenuBar.h */,
+				F5563E0D2048054C001D3725 /* CXSmearMenuBar.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -278,6 +289,13 @@
 				F5563E022047E27F001D3725 /* UIImage+Tint.m */,
 			);
 			path = UIImage;
+			sourceTree = "<group>";
+		};
+		F5563E052047F502001D3725 /* Smear */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Smear;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5563E0E2048054C001D3725 /* CXSmearMenuBar.m in Sources */,
 				F5563DFA2047A0C5001D3725 /* CXShineButton.m in Sources */,
 				F5563DEA20450CF2001D3725 /* ColorPickerView.m in Sources */,
 				F5563E032047E27F001D3725 /* UIImage+Tint.m in Sources */,
@@ -589,6 +608,7 @@
 				F5563DB7204506F4001D3725 /* main.m in Sources */,
 				F5563DA9204506F4001D3725 /* AppDelegate.m in Sources */,
 				F5563DF4204645CC001D3725 /* ColorSliderView.m in Sources */,
+				F5563E0B2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
