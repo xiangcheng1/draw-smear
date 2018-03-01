@@ -30,7 +30,7 @@
     self.imgView = [[UIImageView alloc] init];
     self.imgView.image = [UIImage imageNamed:@"pickerColor.png"];
     [self addSubview:self.imgView];
-    NSLog(@"---------");
+    NSLog(@"-------哈哈哈哈--");
 }
 
 -(void)layoutSubviews
