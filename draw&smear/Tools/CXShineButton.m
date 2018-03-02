@@ -87,7 +87,7 @@ NSString *const KAnimateStopKey = @"KAnimateStopKey";
     if (anim == [self.circleLayer animationForKey:KAnimateStep2Key]) {
         self.circleLayer.hidden = YES;
     }
-    if (anim == [self.circleLayer animationForKey:KAnimateStopKey]) {
+    if (anim == [self.imageView.layer animationForKey:KAnimateStopKey]) {
         [self.maskLayer removeAllAnimations];
         self.maskLayer.path = [UIBezierPath bezierPathWithOvalInRect:[self p_createOvalWithPercent:0]].CGPath;
         self.isAnimating = NO;
@@ -109,7 +109,9 @@ NSString *const KAnimateStopKey = @"KAnimateStopKey";
 
 - (void)animatehightlight
 {
-    
+    self.isHightlight = YES;
+    self.imageView.image = self.hightlightImage;
+    [self setNeedsDisplay];
 }
 
 + (instancetype)shineButtonWithTintColor:(UIColor *)tintColor normalImage:(UIImage *)normalImage hightlightImage:(UIImage *)hightlightImage normarTypeTapAction:(cxActionBlock)normalAction hightlightTypeTapAction:(cxActionBlock)hightlightAction

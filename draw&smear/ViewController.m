@@ -10,9 +10,10 @@
 #import <Photos/Photos.h>
 #import "ColorPickerView.h"
 #import "MyImageView.h"
-#import "CXShineButton.h"
+#import "CXSmearMenuBar.h"
+#import "CXRecommendColorView.h"
 
-@interface ViewController ()<UIScrollViewDelegate,ColorPickerViewDelegate>
+@interface ViewController ()<UIScrollViewDelegate,ColorPickerViewDelegate,CXSmearMenuBarDelegate>
 
 @property (nonatomic,strong) UIButton * shapeButton;    //返回
 @property (nonatomic,strong) UIButton * keepButton;     //保存
@@ -25,8 +26,8 @@
 @property (nonatomic,strong) ColorPickerView * colorView;
 
 /** 选中的view */
-@property (nonatomic,strong) UIView * selectedView;
 @property (nonatomic,strong) UIScrollView * scrollView;
+@property (nonatomic,strong) CXRecommendColorView * recommendColorView;
 
 /** 颜色 */
 @property (nonatomic,strong) UIColor * selectedColor;
@@ -80,14 +81,21 @@
     self.navigationItem.leftBarButtonItems =  @[[[UIBarButtonItem alloc] initWithCustomView:_shapeButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_keepButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_shareButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_revokeButton]];
     
     
-    CXShineButton * shineButton = [CXShineButton shineButtonWithTintColor:[UIColor redColor] normalImage:[UIImage imageNamed:@"save_normal"] hightlightImage:[UIImage imageNamed:@"save_select"] normarTypeTapAction:^{
-        NSLog(@"<>_<>----嘿嘿嘿");
-    } hightlightTypeTapAction:^{
-        NSLog(@"<>_<>----哈哈哈");
+    CXSmearMenuBar * smearMenuBar = [CXSmearMenuBar smearMenuBarWithFrame:CGRectMake(0, SCREEN_HEIGHT - 60, SCREEN_WIDTH, 60) buttonItemArray:[self p_getSmearMenuButtonItemArray]];
+    smearMenuBar.delegate = self;
+    smearMenuBar.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
+    [self.view addSubview:smearMenuBar];
+}
+
+- (NSArray *)p_getSmearMenuButtonItemArray
+{
+    NSArray * imageNameArray = @[@"share_normal",@"cancel_normal",@"save_normal",@"empty_normal",@"next_normal"];
+    NSMutableArray * itemArray = [NSMutableArray array];
+    [imageNameArray enumerateObjectsUsingBlock:^(NSString * imageName, NSUInteger idx, BOOL * _Nonnull stop) {
+        CXSmearMenuButtonItem * item = [CXSmearMenuButtonItem smearMenuButtonItemWithImageName:imageName imageNormalColor:[UIColor redColor] imageSelectColor:[UIColor blueColor] isSelected:NO];
+        [itemArray addObject:item];
     }];
-    shineButton.isCycleResponse = YES;
-    shineButton.frame = CGRectMake(100, 450, 69, 69);
-    [self.view addSubview:shineButton];
+    return itemArray;
 }
 
 // 返回
@@ -130,26 +138,13 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-// 分享按钮
-- (void)shareButtonBarButtonAction
-{
-    
-}
-// 撤销 按钮
-- (void)revokeButtonBarButtonAction
-{
-    
-    //    self.myimageview .image = [UIImage imageNamed:@"beast_1"];
-    [self.myimageview revokeOption];
-    
-    
-}
 
 - (void)setUI
 {
     CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
     self.view.backgroundColor = [UIColor whiteColor];
     _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 100, screenW, screenW)];
+    _scrollView.backgroundColor = [UIColor colorWithWholeRed:230 green:230 blue:230];
     [self.view addSubview:_scrollView];
     self.myimageview = [[MyImageView alloc] initWithFrame:_scrollView.bounds];
     [self.scrollView addSubview:self.myimageview];
@@ -166,6 +161,7 @@
     
     //设置一个图片的存储路径
     self.myimageview.image = [UIImage imageNamed:@"1.1"];
+    self.myimageview.baseImage = [UIImage imageNamed:@"1.1"];
     CGFloat sc =  (screenW/self.myimageview.image.size.width);
     self.myimageview.frame = CGRectMake(0, 0, screenW, self.myimageview.image.size.height * sc);
     self.myimageview.scaleNum = 1/sc;
@@ -174,18 +170,15 @@
     
     self.colorView = [[ColorPickerView alloc] init];
     _colorView.pickerColorDelegate = self;
-    _colorView.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.height - 20 - 150, 150, 150);
+    _colorView.frame = CGRectMake(20, [UIScreen mainScreen].bounds.size.height - 180, 100, 100);
     [self.view addSubview:self.colorView];
-    self.selectedView = [[UIView alloc] init];
-    self.selectedView.frame = CGRectMake(200, [UIScreen mainScreen].bounds.size.height - 100,  100, 20);
-    [self.view  addSubview:self.selectedView];
     
-    UIButton * changeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [changeBtn setTitle:@"切换图片" forState:UIControlStateNormal];
-    changeBtn.frame = CGRectMake(200, [UIScreen mainScreen].bounds.size.height - 60, 100, 20);
-    [changeBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    [changeBtn addTarget:self action:@selector(changeBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:changeBtn];
+    self.recommendColorView = [[CXRecommendColorView alloc] initWithFrame:CGRectMake(self.colorView.maxX + 20, self.colorView.midY, screenW - self.colorView.maxX - 40, 30)];
+    [self.recommendColorView.recommendColorSelectSubject subscribeNext:^(CXRecommendColorItemView * recommendItemView) {
+        self.selectedColor = recommendItemView.backgroundColor;
+        self.myimageview.newcolor = recommendItemView.backgroundColor;
+    }];
+    [self.view addSubview:self.recommendColorView];
 }
 
 //放大缩小
@@ -208,6 +201,7 @@
     NSString *imageName = [NSString stringWithFormat:@"%d.1.png" , a];
     UIImage *image = [UIImage imageNamed:imageName];
     self.myimageview.image = image;
+    self.myimageview.baseImage = image;
     CGFloat sc =  (screenW/self.myimageview.image.size.width);
     self.myimageview.frame = CGRectMake(0, 0, screenW, self.myimageview.image.size.height * sc);
     self.myimageview.scaleNum = 1/sc;
@@ -219,6 +213,31 @@
 }
 
 
+#pragma mark - CXSmearMenuBar
+- (void)smearMenuBarClickIndex:(NSInteger)index barItemIsSelectAfter:(BOOL)select
+{
+    if (index == 0) { // 颜色
+        [self shareImage];
+    } else if (index == 1) {    //撤销
+        [self.myimageview revokeOption];
+    } else if (index == 2) {    //保存
+        [self keepButtonBarButtonAction];
+    } else if (index == 3) {    //清空
+        [self.myimageview emptyOption];
+    } else if (index == 4) {    //下一个
+        [self changeBtnClick];
+    }
+}
+
+- (void)shareImage
+{
+//    UIGraphicsBeginImageContextWithOptions(self.myimageview.size, NO, 0.0);
+//    [self.myimageview.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+    [[ShareManager shareInstance] shareImage:self.myimageview.image];
+}
+
 
 #pragma mark - ColorPickerViewDelegate
 - (void)pickerColor:(UIColor *)color
@@ -226,7 +245,7 @@
     if (color) {
         self.myimageview.newcolor = color;
         self.selectedColor = color;
-        self.selectedView.backgroundColor = color;
+        [self.recommendColorView selectItemView].backgroundColor = color;
     }
 }
 

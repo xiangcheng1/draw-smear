@@ -29,7 +29,7 @@
 @property (nonatomic,strong) UIColor * normalColor;
 @property (nonatomic,strong) UIColor * selectColor;
 @property (nonatomic,assign) BOOL selected;
-+ (instancetype)doodleMenuButtonItemWithImageName:(NSString *)imageName
++ (instancetype)smearMenuButtonItemWithImageName:(NSString *)imageName
                                  imageNormalColor:(UIColor *)normalColor
                                  imageSelectColor:(UIColor *)selectColor
                                        isSelected:(BOOL)selected;

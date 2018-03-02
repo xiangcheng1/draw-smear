@@ -10,5 +10,6 @@
 #define CategoryHeader_h
 
 #import "UIImage+Tint.h"
+#import "UIImage+resizeImage.h"
 
 #endif /* CategoryHeader_h */

@@ -38,6 +38,16 @@
     CGPoint lastPoint = [self.revokePoints.lastObject CGPointValue];
     [self floodFillFromPoint:lastPoint withColor:[UIColor whiteColor]];
 }
+
+/*
+ * 清空操作
+ */
+- (void)emptyOption
+{
+    [self.revokePoints removeAllObjects];
+    [self setImage:_baseImage];
+}
+
 /**
  选中操作
  */
@@ -531,4 +541,6 @@ unsigned int getColorCodeFromUIColor(UIColor *color, CGBitmapInfo orderMask)
     }
     return _revokePoints;
 }
+
+
 @end

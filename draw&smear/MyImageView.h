@@ -35,4 +35,9 @@
  */
 - (void)revokeOption;
 
+/*
+ * 清空操作
+ */
+- (void)emptyOption;
+
 @end

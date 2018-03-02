@@ -34,6 +34,10 @@
 		F5563E032047E27F001D3725 /* UIImage+Tint.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E022047E27F001D3725 /* UIImage+Tint.m */; };
 		F5563E0B2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E0A2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m */; };
 		F5563E0E2048054C001D3725 /* CXSmearMenuBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E0D2048054C001D3725 /* CXSmearMenuBar.m */; };
+		F5563E112048F87A001D3725 /* CXRecommendColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E102048F87A001D3725 /* CXRecommendColorView.m */; };
+		F5563E1520492023001D3725 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E1420492023001D3725 /* ShareManager.m */; };
+		F5563E17204920C7001D3725 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5563E16204920C7001D3725 /* Social.framework */; };
+		F5563E1A20492D85001D3725 /* UIImage+resizeImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F5563E1920492D85001D3725 /* UIImage+resizeImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,13 @@
 		F5563E0A2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+CXDoodleMenuBar.m"; sourceTree = "<group>"; };
 		F5563E0C2048054C001D3725 /* CXSmearMenuBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXSmearMenuBar.h; sourceTree = "<group>"; };
 		F5563E0D2048054C001D3725 /* CXSmearMenuBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXSmearMenuBar.m; sourceTree = "<group>"; };
+		F5563E0F2048F87A001D3725 /* CXRecommendColorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXRecommendColorView.h; sourceTree = "<group>"; };
+		F5563E102048F87A001D3725 /* CXRecommendColorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXRecommendColorView.m; sourceTree = "<group>"; };
+		F5563E1320492023001D3725 /* ShareManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
+		F5563E1420492023001D3725 /* ShareManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
+		F5563E16204920C7001D3725 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		F5563E1820492D84001D3725 /* UIImage+resizeImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+resizeImage.h"; sourceTree = "<group>"; };
+		F5563E1920492D85001D3725 /* UIImage+resizeImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+resizeImage.m"; sourceTree = "<group>"; };
 		FC3A1ABDBCAD1CE6EACCF9F6 /* Pods-draw&smear.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-draw&smear.release.xcconfig"; path = "Pods/Target Support Files/Pods-draw&smear/Pods-draw&smear.release.xcconfig"; sourceTree = "<group>"; };
 		FF64AFE1A73FA44820C75514 /* libPods-draw&smearTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-draw&smearTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5563E17204920C7001D3725 /* Social.framework in Frameworks */,
 				4A122C42F5BC958B36200480 /* libPods-draw&smear.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +151,7 @@
 		4E405278A622E912FA9CE964 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F5563E16204920C7001D3725 /* Social.framework */,
 				73A67B242DDF930E9DC25AD8 /* libPods-draw&smear.a */,
 				FF64AFE1A73FA44820C75514 /* libPods-draw&smearTests.a */,
 				980D8757FF5656D9338E5F3D /* libPods-draw&smearUITests.a */,
@@ -261,6 +274,8 @@
 				F5563E0A2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m */,
 				F5563E0C2048054C001D3725 /* CXSmearMenuBar.h */,
 				F5563E0D2048054C001D3725 /* CXSmearMenuBar.m */,
+				F5563E0F2048F87A001D3725 /* CXRecommendColorView.h */,
+				F5563E102048F87A001D3725 /* CXRecommendColorView.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -268,6 +283,7 @@
 		F5563DFE2047E215001D3725 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				F5563E122049200F001D3725 /* ShareManager */,
 				F5563DFF2047E233001D3725 /* Category */,
 			);
 			path = Common;
@@ -287,6 +303,8 @@
 			children = (
 				F5563E012047E27F001D3725 /* UIImage+Tint.h */,
 				F5563E022047E27F001D3725 /* UIImage+Tint.m */,
+				F5563E1820492D84001D3725 /* UIImage+resizeImage.h */,
+				F5563E1920492D85001D3725 /* UIImage+resizeImage.m */,
 			);
 			path = UIImage;
 			sourceTree = "<group>";
@@ -296,6 +314,15 @@
 			children = (
 			);
 			path = Smear;
+			sourceTree = "<group>";
+		};
+		F5563E122049200F001D3725 /* ShareManager */ = {
+			isa = PBXGroup;
+			children = (
+				F5563E1320492023001D3725 /* ShareManager.h */,
+				F5563E1420492023001D3725 /* ShareManager.m */,
+			);
+			path = ShareManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -598,15 +625,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5563E0E2048054C001D3725 /* CXSmearMenuBar.m in Sources */,
+				F5563E1520492023001D3725 /* ShareManager.m in Sources */,
 				F5563DFA2047A0C5001D3725 /* CXShineButton.m in Sources */,
 				F5563DEA20450CF2001D3725 /* ColorPickerView.m in Sources */,
 				F5563E032047E27F001D3725 /* UIImage+Tint.m in Sources */,
 				F5563DF0204541D3001D3725 /* LinkedListStack.m in Sources */,
+				F5563E1A20492D85001D3725 /* UIImage+resizeImage.m in Sources */,
 				F5563DED20453E3A001D3725 /* MyImageView.m in Sources */,
 				F5563DAC204506F4001D3725 /* ViewController.m in Sources */,
 				F5563DFD2047D84D001D3725 /* CXDoodleMenuBar.m in Sources */,
 				F5563DB7204506F4001D3725 /* main.m in Sources */,
 				F5563DA9204506F4001D3725 /* AppDelegate.m in Sources */,
+				F5563E112048F87A001D3725 /* CXRecommendColorView.m in Sources */,
 				F5563DF4204645CC001D3725 /* ColorSliderView.m in Sources */,
 				F5563E0B2047F5D8001D3725 /* UIView+CXDoodleMenuBar.m in Sources */,
 			);

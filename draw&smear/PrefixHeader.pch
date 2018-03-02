@@ -17,4 +17,10 @@
 
 #import "CategoryHeader.h"
 
+#import "AppDelegate.h"
+#import "ShareManager.h"
+
+
+#define RootViewController ((AppDelegate *)[UIApplication sharedApplication].delegate).window.rootViewController
+
 #endif /* PrefixHeader_pch */
