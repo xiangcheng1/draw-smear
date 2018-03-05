@@ -11,6 +11,7 @@ pod 'ReactiveObjC'
 pod 'Masonry'
 pod 'MMProgressHUD'
 pod 'CommonElement', '0.2.2'
+pod 'TZImagePickerController', '~> 1.0.4'
 
   # Pods for draw&smear
 

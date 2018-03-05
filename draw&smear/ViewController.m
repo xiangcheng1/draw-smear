@@ -46,40 +46,7 @@
 
 - (void)setNav
 {
-    //返回
-    self.shapeButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    self.shapeButton.frame = CGRectMake(0, 0, 24, 24);
-    [self.shapeButton setImage:[UIImage imageNamed:@"Shape"] forState:(UIControlStateNormal)];
-    [self.shareButton setTitle:@"返回" forState:(UIControlStateNormal)];
-    [self.shareButton addTarget:self action:@selector(shapeButtonBarButtonAction) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.shapeButton setTitleColor:[UIColor blueColor] forState:(UIControlStateNormal)];
-    
-    //保存
-    self.keepButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    self.keepButton.frame = CGRectMake(0, 0, 24, 24);
-    [self.keepButton setTitle:@"保存" forState:UIControlStateNormal];
-    [self.keepButton setImage:[UIImage imageNamed:@"保存"] forState:UIControlStateNormal];
-    [self.keepButton addTarget:self action:@selector(keepButtonBarButtonAction) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.keepButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    //分享
-    self.shareButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    self.shareButton.frame = CGRectMake(0, 0, 24, 24);
-    [self.shareButton setImage:[UIImage imageNamed:@"分享"] forState:UIControlStateNormal];
-    [self.shareButton addTarget:self action:@selector(shareButtonBarButtonAction) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.shareButton setTitle:@"分享" forState:UIControlStateNormal];
-    [self.shareButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    //撤销
-    self.revokeButton = [UIButton buttonWithType:(UIButtonTypeCustom)];
-    self.revokeButton.frame = CGRectMake(0, 0, 24, 24);
-    [self.revokeButton setImage:[UIImage imageNamed:@"撤销"] forState:UIControlStateNormal];
-    [self.revokeButton addTarget:self action:@selector(revokeButtonBarButtonAction) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.revokeButton setTitle:@"撤销" forState:UIControlStateNormal];
-    [self.revokeButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-    
-    UIBarButtonItem * negativeSpacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:(UIBarButtonSystemItemFixedSpace) target:nil action:nil];
-    negativeSpacer.width = 50;
-    self.navigationItem.leftBarButtonItems =  @[[[UIBarButtonItem alloc] initWithCustomView:_shapeButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_keepButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_shareButton],negativeSpacer,[[UIBarButtonItem alloc] initWithCustomView:_revokeButton]];
-    
+    self.navigationItem.title = @"我涂我画";
     
     CXSmearMenuBar * smearMenuBar = [CXSmearMenuBar smearMenuBarWithFrame:CGRectMake(0, SCREEN_HEIGHT - 60, SCREEN_WIDTH, 60) buttonItemArray:[self p_getSmearMenuButtonItemArray]];
     smearMenuBar.delegate = self;

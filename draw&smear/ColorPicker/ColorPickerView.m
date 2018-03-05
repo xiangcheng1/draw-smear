@@ -66,6 +66,11 @@
 //通过点获取该点的颜色
 - (UIColor *)colorAtPixel:(CGPoint)point
 {
+    CGFloat radius = self.imgView.width / 2;
+    if (sqrt(pow(point.x - radius, 2) + pow(point.y - radius, 2)) >= radius) {
+        return [UIColor clearColor];
+    }
+    
     // 判断是否点击在图片上
     if (!CGRectContainsPoint(self.imgView.bounds, point))
     {
